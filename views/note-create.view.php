@@ -8,14 +8,22 @@
         <div>
             <div class="md:grid md:grid-cols3 md:gap-6">
                 <div class="mt-5 md:col-span-2 md:mt-0">
-
-                    <form action="#" method="POST">
-                        <div class="col-span-full">
+                    <form method="POST">
+                        <div class="shadow sm:overflow-hidden" sm:rounded-md>
+                        <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
+                            <div>
                             <label for="body" class="block text-sm font-medium leading-6 text-gray-900">Body</label>
-                            <div class="mt-2">
+                            <div class="mt-1">
                                 <textarea id="body" name="body" rows="3"
-                                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                          class="mt-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 
+                                           ring-inset ring-gray-300
+                                           focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                           placeholder="Here's and idea for a note..."><?=$_POST['body'] ?? '' ?></textarea>
+                                <?php if(isset($errors['body'])) : ?>
+                                    <p class="text-red-500 text-xs mt-2"><?= $errors['body'] ?></p>
+                                    <?php endif; ?>
                             </div>
+                        </div>
                         </div>
                         <div class="mt-6 flex items-center justify-end gap-x-6">
                             <button type="submit"
