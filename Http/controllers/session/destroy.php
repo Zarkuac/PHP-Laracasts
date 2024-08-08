@@ -1,10 +1,11 @@
 <?php
 
 
+use Core\Authenticator;
+
 // logout user
 
-logout();
-
+(new Authenticator)->logout();
 
 
 header('location: /');
