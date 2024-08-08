@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Core\App;
 use Core\Validator;
@@ -18,7 +18,7 @@ if (!Validator::string($password, 7, 255)) {
     $errors['password'] = 'Please provide a password of at least seven characters.';
 }
 
-if(! empty($errors)) {
+if (!empty($errors)) {
     return view('registration/create.view.php', [
         'errors' => $errors
     ]);
@@ -26,7 +26,7 @@ if(! empty($errors)) {
 
 //check accs for !dublicateData
 $db = App::resolve(Database::class);
-$user = $db ->query('select * from users where email = :email', [
+$user = $db->query('select * from users where email = :email', [
     'email' => $email
 ])->find();
 
@@ -34,9 +34,9 @@ if ($user) {
     header('location: /');
     exit();
 } else {
-    $db->query('INSERT INTO users(email, password) VALUES(:email, :password)' , [
-        'email'=> $email,
-        'password'=> $password
+    $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
+        'email' => $email,
+        'password' => $password
     ]);
 
     $_SESSION['user'] = [

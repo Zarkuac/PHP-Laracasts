@@ -38,7 +38,6 @@
                                      <?php else : ?>
                             <a href="/register" class="text-white">Register</a>
                     <?php endif; ?>
-                            
                                     </button>
                         </div>
                 </div>
